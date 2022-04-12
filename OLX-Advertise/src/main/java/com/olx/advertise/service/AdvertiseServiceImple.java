@@ -76,7 +76,7 @@ public class AdvertiseServiceImple implements AdvertiseService {
 		Predicate predicateDateConditionBetweenFromDate = criteriaBuilder.and();
 		Predicate predicatePostedBy = criteriaBuilder.and();
 		Predicate predicateDateCondition = criteriaBuilder.and();
-		
+		Predicate predicateOrderBy = criteriaBuilder.and();
 		Predicate predicateFinal = criteriaBuilder.and();
 
 		if (searchText != null && !"".equalsIgnoreCase(searchText)) {
@@ -110,10 +110,7 @@ public class AdvertiseServiceImple implements AdvertiseService {
 		predicateDateCondition = criteriaBuilder.and(predicateDateConditionEquals,predicateDateConditionGreateThan,
 				predicateDateConditionLessThan,predicateDateConditionBetweenFromDate);
 		
-		if(sortedBy != null && !sortedBy.equalsIgnoreCase(""))
-		{
-			//criteriaQuery.orderBy(criteriaBuilder);
-		}
+		
 		
 		
 		if(categoryId != null )
@@ -124,7 +121,21 @@ public class AdvertiseServiceImple implements AdvertiseService {
 		predicateFinal = criteriaBuilder.and(predicateSearchText, predicateCategory, predicateDateCondition,
 				predicatePostedBy);
 		criteriaQuery.where(predicateFinal);
+		if(sortedBy != null && !sortedBy.equalsIgnoreCase(""))
+		{
+			if(sortedBy == "title")
+			{
+				criteriaQuery = criteriaQuery.orderBy(criteriaBuilder.asc(root.get("title")));
+			}
+			else
+			{
+				criteriaQuery = criteriaQuery.orderBy(criteriaBuilder.asc(root.get("price")));
+			}
+			
+			
+		}
 		TypedQuery<AdvertiseEntity> typedQuery = entityManager.createQuery(criteriaQuery);
+		
 		typedQuery.setFirstResult(startIndex);
 		typedQuery.setMaxResults(records);
 		List<AdvertiseEntity> advertiseEntityList = typedQuery.getResultList();
