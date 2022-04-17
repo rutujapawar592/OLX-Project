@@ -6,6 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -27,6 +28,11 @@ public class OlxAdvertiseApplication {
 	@Bean
 	public ModelMapper getMapping() {
 		return new ModelMapper();
+	}
+	
+	@Bean
+	public RestTemplate getRestTemplate() {
+		return new RestTemplate();
 	}
 	@Bean
 	public Docket getCustomizedDocket() {

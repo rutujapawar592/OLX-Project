@@ -3,6 +3,7 @@ package com.olx.masterdata.service;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
@@ -38,7 +39,7 @@ public class MasterServiceImpl implements MasterService {
 		Iterator<CategoryEntity> itrStockEntities = categoryEntities.iterator();
 		while(itrStockEntities.hasNext())
 		{
-			Category category = convertEntityIDTO(itrStockEntities.next());
+			Category category = convertEntityInDTO(itrStockEntities.next());
 			categoryDTO.add(category);
 		}
 		
@@ -72,7 +73,7 @@ public class MasterServiceImpl implements MasterService {
 		Status status = modelMapper.map(statusEntity, Status.class);
 		return status;
 	}
-	private StatusEntity convertDTOIEntity(Status status) {
+	private StatusEntity convertDTOIntoEntity(Status status) {
 		
 //		TypeMap<Status, StatusEntity> typeMap = modelMapper.typeMap(Status.class, StatusEntity.class);
 //		typeMap.addMappings(mapper -> {
@@ -83,7 +84,7 @@ public class MasterServiceImpl implements MasterService {
 		return statusEntity;
 	}
 	
-	private Category convertEntityIDTO(CategoryEntity categoryEntity) {
+	private Category convertEntityInDTO(CategoryEntity categoryEntity) {
 		//return new StatusEntity(Status.getId(), Status.getName(), Status.getMarket(), Status.getPrice());
 //		TypeMap<StatusEntity, Status> typeMap = modelMapper.typeMap(StatusEntity.class, Status.class);
 //		typeMap.addMappings(mapper -> {
@@ -92,7 +93,7 @@ public class MasterServiceImpl implements MasterService {
 		Category category = modelMapper.map(categoryEntity, Category.class);
 		return category;
 	}
-	private CategoryEntity convertDTOIEntity(Category category) {
+	private CategoryEntity convertDTOInEntity(Category category) {
 		
 //		TypeMap<Status, StatusEntity> typeMap = modelMapper.typeMap(Status.class, StatusEntity.class);
 //		typeMap.addMappings(mapper -> {
@@ -101,5 +102,31 @@ public class MasterServiceImpl implements MasterService {
 		CategoryEntity categoryEntity = modelMapper.map(category, CategoryEntity.class);
 		
 		return categoryEntity;
+	}
+
+	@Override
+	public String getCategoryDescription(int CateId) {
+		// TODO Auto-generated method stub
+		Optional<CategoryEntity> categoryEntity = categoryRepo.findById(CateId);
+		String CategoryName = null;
+		if(categoryEntity.isPresent())
+		{
+			Category category = convertEntityInDTO(categoryEntity.get());
+			CategoryName = category.getCategoryname();
+		}
+		return CategoryName;
+	}
+
+	@Override
+	public String getStatusName(int StatusId) {
+		// TODO Auto-generated method stub
+		Optional<StatusEntity> stateEntity = statusRepo.findById(StatusId);
+		String StatusName = null;
+		if(stateEntity.isPresent())
+		{
+			Status status = convertEntityIDTO(stateEntity.get());
+			StatusName = status.getStatusName();
+		}
+		return StatusName;
 	}
 }

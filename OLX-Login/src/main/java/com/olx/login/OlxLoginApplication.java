@@ -6,6 +6,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.authentication.AuthenticationManager;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -24,9 +27,15 @@ public class OlxLoginApplication {
 		SpringApplication.run(OlxLoginApplication.class, args);
 	}
 	
+	
 	@Bean
 	public ModelMapper getModelMapping() {
 		return new ModelMapper();
+	}
+	
+	@Bean
+	public PasswordEncoder getPasswordEncoder() {
+		return new BCryptPasswordEncoder();
 	}
 	@Bean
 	public Docket getCuttomizedDocket() {

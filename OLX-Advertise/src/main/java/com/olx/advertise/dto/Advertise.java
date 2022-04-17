@@ -17,7 +17,7 @@ public class Advertise {
 	
 	
 	@ApiModelProperty(value = "Id")
-	private long id;
+	private int Id;
 	@ApiModelProperty(value = "Title")
 	private String title;
 	@ApiModelProperty(value = "description")
@@ -25,7 +25,9 @@ public class Advertise {
 	@ApiModelProperty(value = "price")
 	private double price;
 	@ApiModelProperty(value = "category")
-	private long category;
+	private int category;
+	@ApiModelProperty(value = "categoryName")
+	private String categoryName;
 	@ApiModelProperty(value = "createdDate")
 	private LocalDate createdDate;
 	@ApiModelProperty(value = "modifiedDate")
@@ -34,7 +36,8 @@ public class Advertise {
 	private String active;
 	@ApiModelProperty(value = "username")
 	private String username;
-	
+	private int statusId;
+	private String statusName;
 	
 	public Advertise() {
 		super();
@@ -42,28 +45,27 @@ public class Advertise {
 	}
 
 
-	public Advertise(long id, String title, String description, double price, long category, LocalDate createdDate,
-			LocalDate modifiedDate, String active, String username) {
+	public Advertise(int Id, String title, String description, double price, int category, int statusId, String username) {
 		super();
-		this.id = id;
+		this.Id = Id;
 		this.title = title;
 		this.description = description;
 		this.price = price;
 		this.category = category;
-		this.createdDate = createdDate;
-		this.modifiedDate = modifiedDate;
-		this.active = active;
+		this.createdDate = LocalDate.now();
+		this.modifiedDate = LocalDate.now();
+		this.statusId = statusId;
 		this.username = username;
 	}
 
 
-	public long getId() {
-		return id;
+	public int getId() {
+		return Id;
 	}
 
 
-	public void setId(long id) {
-		this.id = id;
+	public void setId(int id) {
+		this.Id = id;
 	}
 
 
@@ -97,12 +99,12 @@ public class Advertise {
 	}
 
 
-	public long getCategory() {
+	public int getCategory() {
 		return category;
 	}
 
 
-	public void setCategory(long category) {
+	public void setCategory(int category) {
 		this.category = category;
 	}
 
@@ -113,7 +115,7 @@ public class Advertise {
 
 
 	public void setCreatedDate(LocalDate createdDate) {
-		this.createdDate = createdDate;
+		this.createdDate = LocalDate.now();
 	}
 
 
@@ -123,7 +125,7 @@ public class Advertise {
 
 
 	public void setModifiedDate(LocalDate modifiedDate) {
-		this.modifiedDate = modifiedDate;
+		this.modifiedDate = LocalDate.now();
 	}
 
 
@@ -147,12 +149,38 @@ public class Advertise {
 	}
 
 
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+	
+	public int getStatusId() {
+		return statusId;
+	}
+	public void setStatusId(int statusId) {
+		this.statusId = statusId;
+	}
+	public String getStatusName() {
+		return statusName;
+	}
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
+	}
+	
 	@Override
 	public String toString() {
-		return "Advertise [id=" + id + ", title=" + title + ", description=" + description + ", price=" + price
-				+ ", category=" + category + ", createdDate=" + createdDate + ", modifiedDate=" + modifiedDate
-				+ ", active=" + active + ", username=" + username + "]";
+		return "Advertise [Id=" + Id + ", title=" + title + ", description=" + description + ", price=" + price
+				+ ", categoryName=" + categoryName + ", createdDate=" + createdDate + ", modifiedDate=" + modifiedDate
+				+ ", statusName=" + statusName + ", username=" + username + "]";
 	}
+
+
+	
 	
 	
 }

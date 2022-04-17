@@ -10,3 +10,4 @@ public interface LoginService {
 	public User getUser(String userToken);
 	public Boolean tokenValidatation(String userToken);
 }
+

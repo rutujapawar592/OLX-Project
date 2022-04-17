@@ -6,14 +6,16 @@ import java.util.List;
 import com.olx.advertise.dto.Advertise;
 
 public interface AdvertiseService {
-	public Advertise postAdvertise(Advertise Advertise);
-	public Advertise updateAdvertise(Advertise Advertise);
-	public List<Advertise> getAllAdvertiseByUser();
-	public List<Advertise> getAdvertiseByUser();
+	public Advertise createNewAdvertise(Advertise advertise, String authToken);
+	public Advertise updateAdvertise(Advertise Advertise, int id, String authtoken);
+	public List<Advertise> getAllAdvertises(String authToken);
+	public List<Advertise> getAdvertiseAllById(int id, String authToken);
+	
+	public Boolean deleteAdvertiseById(int id, String authtoken);
 	public List<Advertise> filterAdvertise(String searchText, Integer categoryId, String postedBy,String dateCondition, LocalDate onDate,LocalDate fromDate,
 			LocalDate toDate, String sortedBy, int startIndex, int records);
-	public Advertise SearchAdvertiseByText(String searchText);
-	public Advertise returnAdvertise(int id);
-	
+	public List<Advertise> SearchAdvertiseByText(String searchText);
+
+	public Advertise getAdvertiseById(int id, String authToken);
 
 }

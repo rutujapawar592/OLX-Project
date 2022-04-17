@@ -1,36 +1,26 @@
-package com.olx.login.dto;
+package com.olx.login.entity;
 
-import java.time.LocalDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-@ApiModel(value = "LoginService DTO")
-public class User {
+@Document(collection = "USERS")
+public class UserDocument {
 	
-	@ApiModelProperty(value = "ID")
+	@Id
 	private int Id;
-	@ApiModelProperty(value = "FirstName")
 	private String firstName;
-	@ApiModelProperty(value = "LastName")
 	private String lastName;
-	@ApiModelProperty(value = "UserName")
 	private String userName;
-	@ApiModelProperty(value = "Password")
 	private String password;
-	@ApiModelProperty(value = "Email")
 	private String email;
-	@ApiModelProperty(value = "Phone Number")
 	private String phoneNumber;
 	
-	
-	
-	public User() {
+	public UserDocument() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(int Id,String firstName, String lastName, String userName, String password, String email, String phoneNumber) {
+	public UserDocument(int Id,String firstName, String lastName, String userName, String password, String email, String phoneNumber) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -102,7 +92,6 @@ public class User {
 		return "User [firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName + ", password="
 				+ password + ", email=" + email + ", phoneNumber=" + phoneNumber + "]";
 	}
-	
 	
 	
 }
