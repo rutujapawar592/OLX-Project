@@ -20,12 +20,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
  
 import com.fasterxml.jackson.databind.ObjectMapper;
-
- 
-
+import com.olx.login.controller.LoginController;
 
 import org.junit.jupiter.api.Test;
 
+@WebMvcTest(LoginController.class)
 class LoginContollerTest {
 
 	@Test
