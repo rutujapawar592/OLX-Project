@@ -29,7 +29,7 @@ public class MasterDataDelegateImpl  implements MasterDataDelegate {
 			headers.setContentType(MediaType.APPLICATION_JSON);	
 			HttpEntity entity = new HttpEntity(headers);
 			ResponseEntity<String> response = 
-					restTemplate.exchange("http://localhost:9091/materData/CategoryId/" + CateId, HttpMethod.GET, entity, String.class);
+					restTemplate.exchange("http://API-SERVICE/olx/materData/CategoryId/" + CateId, HttpMethod.GET, entity, String.class);
 			return response.getBody();
 			
 		}
@@ -43,7 +43,7 @@ public class MasterDataDelegateImpl  implements MasterDataDelegate {
 			headers.setContentType(MediaType.APPLICATION_JSON);	
 			HttpEntity entity = new HttpEntity(headers);
 			ResponseEntity<String> response = 
-					restTemplate.exchange("http://localhost:9091/materData/StatusId/" + StatusId, HttpMethod.GET, entity, String.class);
+					restTemplate.exchange("http://API-SERVICE/olx/materData/StatusId/" + StatusId, HttpMethod.GET, entity, String.class);
 			return response.getBody();
 			
 		}

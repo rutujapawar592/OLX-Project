@@ -18,7 +18,7 @@ import com.olx.masterdata.service.MasterService;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/materData")
+@RequestMapping("/olx/materData")
 @CrossOrigin(origins = "*")
 public class MasterController {
 

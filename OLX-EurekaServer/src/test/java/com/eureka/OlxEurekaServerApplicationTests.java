@@ -1,16 +1,13 @@
-package com.olx.advertise;
+package com.eureka;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
 @SpringBootTest
-class OlxAdvertiseApplicationTests {
+class OlxEurekaServerApplicationTests {
 
 	@Test
 	void contextLoads() {
 	}
-	
-	
 
 }

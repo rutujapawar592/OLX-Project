@@ -43,10 +43,11 @@ public class AdvertiseController {
 	@ApiOperation(value = "Adding a Avertise", notes = "This Rest API will return Added Advertise")
 	public ResponseEntity<Advertise> createNewAdvertise(@RequestBody Advertise advertise,
 			@RequestHeader("Authorization") String authToken) {
-		return new ResponseEntity<Advertise>(advertiseService.createNewAdvertise(advertise, authToken), HttpStatus.OK);
+		Advertise advertise2 = advertiseService.createNewAdvertise(advertise, authToken);
+		return new ResponseEntity<Advertise>(advertise2, HttpStatus.OK);
 	}
 
-	// 9
+	// 9a
 	@PutMapping(value = "/{id}", consumes = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE,
 					MediaType.APPLICATION_XML_VALUE })
@@ -65,7 +66,7 @@ public class AdvertiseController {
 	}
 
 	// 11
-	@GetMapping(value = "/user/advertise/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/user/advertises/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ApiOperation(value = "Getting a List of a Avertise by Id", notes = "This Rest API will return List of Advertise by Id")
 	public ResponseEntity<List<Advertise>> getAdvertiseAllById(@ApiParam(value = "Advertise", name = "id") @PathVariable("id") int id,
 			@RequestHeader("Authorization") String authToken) {
