@@ -1,7 +1,7 @@
 management:
   endpoints:
     web:
-      base-path: /advertise
+      base-path: /advertise-service
       exposure:
         include: '*'
   health:

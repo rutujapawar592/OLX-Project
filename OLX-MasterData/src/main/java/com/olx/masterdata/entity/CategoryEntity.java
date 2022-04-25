@@ -17,7 +17,6 @@ public class CategoryEntity {
 	
 	public CategoryEntity(){
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public CategoryEntity(int id, String categoryname) {
 		super();

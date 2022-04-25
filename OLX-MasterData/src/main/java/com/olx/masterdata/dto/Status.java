@@ -15,7 +15,6 @@ public class Status {
 	
 	public Status() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 

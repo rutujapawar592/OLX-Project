@@ -13,7 +13,7 @@ public class Category {
 	private String Categoryname;
 	public Category() {
 		super();
-		// TODO Auto-generated constructor stub
+	
 	}
 	public Category(int id, String categoryname) {
 		super();

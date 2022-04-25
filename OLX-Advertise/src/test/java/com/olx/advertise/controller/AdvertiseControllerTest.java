@@ -44,9 +44,9 @@ class AdvertiseControllerTest {
         Advertise advertise = new Advertise();
         advertise.setTitle("Sofa Sale");
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.set("Authorization", "D78KL");
+        httpHeaders.set("Authorization", "RP66148");
 
-        when(this.advertiseService.createNewAdvertise(advertise, "D78KL")).thenReturn(advertise);
+        when(this.advertiseService.createNewAdvertise(advertise, "RP66148")).thenReturn(advertise);
 
         MvcResult mvcResult = this.mockMvc.perform(post("http://localhost:9093/advertises/")
         		.contentType("application/json")
@@ -81,11 +81,11 @@ class AdvertiseControllerTest {
     @Test
     public void testgetAllAdvertises() throws Exception{
         List<Advertise> advertiseList = new ArrayList<Advertise>();
-        advertiseList.add(new Advertise(1,"User", "Hello boss", 45.67, 3,8, "SurajSandhu123"));
-        advertiseList.add(new Advertise(2,"User23", "Hello bi", 45.67, 3,8, "SurajSandhu123"));
+        advertiseList.add(new Advertise(1,"Tom", "Hello Tom", 45.67, 3,8, "Tom"));
+        advertiseList.add(new Advertise(2,"jerry", "Hello jerry", 45.67, 3,8, "jerry"));
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.set("Authorization", "D78KL");
-        when(this.advertiseService.getAllAdvertises("D78FA")).thenReturn(advertiseList);
+        httpHeaders.set("Authorization", "RP66148");
+        when(this.advertiseService.getAllAdvertises("RP66148")).thenReturn(advertiseList);
 
         MvcResult mvcResult = this.mockMvc.perform(get("http://localhost:9093/advertises/user/advertise")
         		.contentType("application/json")

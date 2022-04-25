@@ -7,13 +7,11 @@ public class FromDateMissingException extends RuntimeException {
 	
 	public FromDateMissingException() {
 		this.message = "";
-		// TODO Auto-generated constructor stub
 	}
 
 
 	public FromDateMissingException(String message) {
 		this.message = message;
-		// TODO Auto-generated constructor stub
 	}
 
 

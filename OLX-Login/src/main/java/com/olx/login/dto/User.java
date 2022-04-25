@@ -1,7 +1,5 @@
 package com.olx.login.dto;
 
-import java.time.LocalDate;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -27,7 +25,6 @@ public class User {
 	
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public User(int Id,String firstName, String lastName, String userName, String password, String email, String phoneNumber) {

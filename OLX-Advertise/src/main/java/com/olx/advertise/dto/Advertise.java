@@ -40,7 +40,6 @@ public class Advertise {
 
 	public Advertise() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Advertise(int Id, String title, String description, double price, int category, int statusId,

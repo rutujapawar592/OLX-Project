@@ -1,16 +1,11 @@
 package com.olx.login.service;
 
-import java.util.Map.Entry;
-import java.util.Optional;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,7 +17,6 @@ import org.springframework.stereotype.Service;
 
 import com.olx.login.dto.User;
 import com.olx.login.entity.BlackListedTokenDocumnents;
-import com.olx.login.entity.UserDocument;
 import com.olx.login.entity.UserEntity;
 import com.olx.login.exception.InvalidAuthTokenException;
 import com.olx.login.exception.InvalidCredentialsException;
@@ -30,7 +24,6 @@ import com.olx.login.repository.BlacklistedTokensDocumentRepo;
 import com.olx.login.repository.LoginRepo;
 import com.olx.login.security.JwtUtil;
 
-import io.jsonwebtoken.SignatureException;
 
 @Service
 @Primary

@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.authentication.AuthenticationManager;
 
@@ -28,7 +27,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
         // this method used for Authentication
 //		auth.inMemoryAuthentication()
-//		.withUser("tom").password(this.passwordEncoder.encode("suraj123")).roles("USER")
+//		.withUser("tom").password(this.passwordEncoder.encode("tom123")).roles("USER")
 //		.and()
 //		.withUser("Jerry").password(this.passwordEncoder.encode("jerry123")).roles("ADMIN");
 		auth.userDetailsService(userDetailsService);

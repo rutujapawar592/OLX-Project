@@ -43,7 +43,7 @@ public class OlxMasterDataApplication {
 		ApiInfo apiInfo = new ApiInfo("Swagger Restful Api Documentation",
 				"This page given REST API Documentation for Stock", 
 				"2.5", "My Teams of Service", 
-				new Contact("Suraj Singh", "http://surajsingh.com", "surajsingh@gmail.com"), 
+				new Contact("Rutuja Pawar", "http://rutujapawar.com", "rutujapawar292@gmail.com"), 
 				"GPL", 
 				"http://gpl.org"
 				,new ArrayList<VendorExtension>());

@@ -28,14 +28,14 @@ public class LoginController {
 	@Autowired
 	LoginService loginService;
 	
-	
+	//1
 	@PostMapping(value = "/user/authenticate", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	@ApiOperation(value = "Authenticating a User", notes = "This Rest API helps to Authenticated User Data")
 	public ResponseEntity<String> authenticate(@RequestBody User user) {
 	        return new ResponseEntity<String>(loginService.authenticate(user),HttpStatus.OK);
 	}
 	
-	
+	//2
 	@DeleteMapping(value = "/user/logout")
 	@ApiOperation(value = "Logout a User", notes = "This Rest API helps to Logout a Authenticated User")
 	public Boolean logout(@RequestHeader("Authorization") String authToken) {

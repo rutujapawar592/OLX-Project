@@ -7,13 +7,11 @@ public class InvalidCredentialsException extends RuntimeException {
 	
 	public InvalidCredentialsException() {
 		this.message = "";
-		// TODO Auto-generated constructor stub
 	}
 
 
 	public InvalidCredentialsException(String message) {
 		this.message = message;
-		// TODO Auto-generated constructor stub
 	}
 
 

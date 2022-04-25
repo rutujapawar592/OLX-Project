@@ -17,7 +17,6 @@ public class StatusEntity {
 	private String statusName;
 	public StatusEntity() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public StatusEntity(int id, String statusName) {
 		super();

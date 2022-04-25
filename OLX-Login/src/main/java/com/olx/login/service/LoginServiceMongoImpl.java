@@ -41,7 +41,6 @@ public class LoginServiceMongoImpl implements LoginService {
 	
 	@Override
 	public String authenticate(User user) {
-		// TODO Auto-generated method stub
 		try {
 			this.authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
 					user.getUserName(),user.getPassword()));
@@ -49,7 +48,6 @@ public class LoginServiceMongoImpl implements LoginService {
 		}
 		catch (AuthenticationException e) {
 			return e.toString();
-			// TODO: handle exception
 		}
 		
 		return jwtUtil.generateToken(user.getUserName());
@@ -57,7 +55,6 @@ public class LoginServiceMongoImpl implements LoginService {
 
 	@Override
 	public Boolean logout(String authToken) {
-		// TODO Auto-generated method stub
 		
 		
 		return null;
@@ -65,7 +62,6 @@ public class LoginServiceMongoImpl implements LoginService {
 
 	@Override
 	public User register(User user) {
-		// TODO Auto-generated method stub
 		UserDocument userDocument = ConvertDTOIntoDocument(user);
 		User userResponse= ConvertDocumentIntoDTO(loginRepoMongoImpl.save(userDocument));
 		return userResponse;
@@ -73,7 +69,6 @@ public class LoginServiceMongoImpl implements LoginService {
 
 	@Override
 	public User getUser(String userToken) {
-		// TODO Auto-generated method stub
 		String Username = jwtUtil.extractUsername(userToken);
 		List<UserDocument> userDocumentLists = loginRepoMongoImpl.findByUserName(Username);
 		User user = ConvertDocumentIntoDTO(userDocumentLists.get(0));
@@ -82,7 +77,6 @@ public class LoginServiceMongoImpl implements LoginService {
 
 	@Override
 	public Boolean tokenValidatation(String userTokenWithBearer) {
-		// TODO Auto-generated method stub
 		
 		String userToken = userTokenWithBearer.substring(7);
 		UserDetails userDetails =   userDetailsServiceImple.loadUserByUsername(jwtUtil.extractUsername(userToken));

@@ -33,7 +33,6 @@ public class MasterServiceImpl implements MasterService {
 	
 	@Override
 	public List<Category> getAllCategory() {
-		// TODO Auto-generated method stub
 		List<CategoryEntity> categoryEntities = categoryRepo.findAll();
 		List<Category> categoryDTO = new ArrayList<Category>();
 		Iterator<CategoryEntity> itrStockEntities = categoryEntities.iterator();
@@ -49,7 +48,6 @@ public class MasterServiceImpl implements MasterService {
 
 	@Override
 	public List<Status> getAllStatus() {
-		// TODO Auto-generated method stub
 		List<StatusEntity> statusEntities = statusRepo.findAll();
 		List<Status> statusDTO = new ArrayList<Status>();
 		Iterator<StatusEntity> itrStockEntities = statusEntities.iterator();
