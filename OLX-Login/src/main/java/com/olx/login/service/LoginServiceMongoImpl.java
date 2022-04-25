@@ -10,6 +10,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import com.olx.login.repository.BlacklistedTokensDocumentRepo;
 
 import com.olx.login.dto.User;
 import com.olx.login.entity.UserDocument;
@@ -28,6 +29,8 @@ public class LoginServiceMongoImpl implements LoginService {
 	
 	@Autowired
 	LoginRepoMongoImpl loginRepoMongoImpl;
+	@Autowired
+	BlacklistedTokensDocumentRepo blacklistedTokensDocumentRepo;
 	
 	@Autowired
 	JwtUtil jwtUtil;
@@ -56,8 +59,15 @@ public class LoginServiceMongoImpl implements LoginService {
 	@Override
 	public Boolean logout(String authToken) {
 		
-		
-		return null;
+	BlackListedTokenDocumnents blackListedTokenDocumnents = blacklistedTokensDocumentRepo.findByToken(authToken);
+		if (blackListedTokenDocumnents != null) {
+			throw new InvalidAuthTokenException();
+		}
+
+		blackListedTokenDocumnents = new BlackListedTokenDocumnents(authToken, LocalDate.now());
+		blacklistedTokensDocumentRepo.save(blackListedTokenDocumnents);
+		return true;	
+	
 	}
 
 	@Override
