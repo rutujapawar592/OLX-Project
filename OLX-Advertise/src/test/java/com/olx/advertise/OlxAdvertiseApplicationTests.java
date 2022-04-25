@@ -10,7 +10,5 @@ class OlxAdvertiseApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-	
-	
 
 }
