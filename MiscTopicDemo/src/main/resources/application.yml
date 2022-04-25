@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: DefaultApp
+  profiles:
+    active: test
+    
+       
+server:
+  port: 8686
