@@ -18,7 +18,7 @@ import com.olx.masterdata.service.MasterService;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/olx/materData")
+@RequestMapping("/olx/materdata")
 @CrossOrigin(origins = "*")
 public class MasterController {
 
@@ -40,7 +40,6 @@ public class MasterController {
 	}
 
 	// Getting Categories
-	// http://localhost:9091/materData/cateId
 	@GetMapping(value = "/CategoryId/{cateId}", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
 	@ApiOperation(value = "Authenticating a User", notes = "This Rest API helps to Authenticated User Data")
 	public String getCategoryDispcription(@PathVariable("cateId") int CateId) {
@@ -49,7 +48,6 @@ public class MasterController {
 	}
 
 	// Getting Categories
-	// http://localhost:9091/materData/cateId
 	@GetMapping(value = "/StatusId/{StatusId}", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
 	@ApiOperation(value = "Authenticating a User", notes = "This Rest API helps to Authenticated User Data")
 	public String getStatusName(@PathVariable("StatusId") int StatusId) {
