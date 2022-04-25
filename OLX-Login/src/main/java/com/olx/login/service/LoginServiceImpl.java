@@ -90,15 +90,6 @@ public class LoginServiceImpl implements LoginService {
 		return convertEntityIDTO(userEntity);
 	}
 
-//	@Override
-//	public Boolean tokenValidatation(String userTokenWithBearer) {
-//		// TODO Auto-generated method stub
-//		String userToken = userTokenWithBearer.substring(7);
-//		String username = jwtUtil.extractUsername(userToken);
-//		UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-//		return jwtUtil.validateToken(userToken, userDetails);
-//	}
-
 	@Override
 	public Boolean tokenValidatation(String authToken) {
 		authToken = authToken.substring(7);
@@ -112,22 +103,13 @@ public class LoginServiceImpl implements LoginService {
 	}
 
 	private User convertEntityIDTO(UserEntity userEntity) {
-		// return new UserEntity(User.getId(), User.getName(), User.getMarket(),
-		// User.getPrice());
-//		TypeMap<UserEntity, User> typeMap = modelMapper.typeMap(UserEntity.class, User.class);
-//		typeMap.addMappings(mapper -> {
-//			mapper.map(UserEntity::getmarketName, User::setMarket);
-//		});
+		
 		User user = modelMapper.map(userEntity, User.class);
 		return user;
 	}
 
 	private UserEntity convertDTOIEntity(User user) {
 
-//		TypeMap<User, UserEntity> typeMap = modelMapper.typeMap(User.class, UserEntity.class);
-//		typeMap.addMappings(mapper -> {
-//			mapper.map(User::getMa, UserEntity::setmarketName);
-//		});
 		UserEntity userEntity = modelMapper.map(user, UserEntity.class);
 
 		return userEntity;
